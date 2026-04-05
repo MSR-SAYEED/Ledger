@@ -1,11 +1,19 @@
-import React from 'react';
-import Hero from '../sections/Hero';
+import React, {  useState } from 'react';
+
+import Layout from './Layout';
+import IntroAnimation from '../sections/IntroAnimation';
+
+
+
 
 const RootLayout = () => {
+    const [introDone, setIntroDone] = useState(false)
+    
     return (
-        <>
-            <Hero/>
-        </>
+        <div className='overflow-hidden'>
+            {!introDone && <IntroAnimation introDone={()=> setIntroDone(true)} />}
+            <Layout intro={introDone}/>
+        </div>
     );
 };
 

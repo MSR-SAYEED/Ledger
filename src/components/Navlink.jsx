@@ -8,7 +8,7 @@ const Navlink = ({ text, link = '' }) => {
     const lineRef = useRef(null);
     const timelineRef = useRef(null);
     useGSAP(() => {
-        gsap.set(lineRef.current, { xPercent: -100 });
+        gsap.set(lineRef.current, { xPercent: -105 });
         timelineRef.current = gsap.timeline({ paused: true });
         timelineRef.current.to(lineRef.current, {
             xPercent: 0,

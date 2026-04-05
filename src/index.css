@@ -5,9 +5,27 @@
 
 body {
     font-family: "Fira Sans", sans-serif;
+    color: #191C1E;
 }
 
 .navbar {
     box-shadow: 0px 1px 2px 0px #0000000D;
     backdrop-filter: blur(24px)
+}
+.containerGap {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  padding-left: 8px;   
+  padding-right: 8px;
+}
+
+
+@media (min-width: 640px) {
+  .containerGap {
+    
+    padding-left: 32px;  
+    padding-right: 32px;
+  }
 }
