@@ -5,7 +5,7 @@ import ButtonCom from './Button';
 
 const Navbar = () => {
     return (
-        <div className='navbar bg-white text-black  w-full  '>
+        <div className='navbar fixed top-0 left-0 z-995 bg-white/60 text-black  w-full  '>
 
             <div className='flex items-center justify-between containerGap py-[16px]  sm:py-3'>
                 <div>

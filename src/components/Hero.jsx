@@ -1,4 +1,4 @@
-import React, {  useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ButtonCom from './Button';
 import { ArrowRight, PlusIcon } from 'lucide-react';
 import gsap from 'gsap';
@@ -6,15 +6,14 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(useGSAP);
 
 
-const Hero = ({introDone}) => {
+const Hero = ({ introDone }) => {
     const heroRef = useRef(null);
-    const iconRef = useRef(null);
     const squareBoxRef = useRef(null);
     const imgRef = useRef(null);
     const tl = useRef(null)
     const mainTl = useRef(null)
 
-    useEffect(()=>{
+    useEffect(() => {
         if (introDone) {
             mainTl.current?.play()
         }
@@ -33,21 +32,12 @@ const Hero = ({introDone}) => {
 
         mainTl.current = gsap.timeline({ paused: true })
             .from(squareBoxRef.current, {
-                width: "auto",
+                scale:0,
                 duration: 0.5,
                 ease: "power2.out"
             })
-            .from(iconRef.current, {
-                rotate: 90,
-                duration: 0.5,
-                ease: "power2.out"
-            }, "<")
             
-            .to(iconRef.current, {
-                rotate: '+=90',
-                duration: 0.6
-            })
-            .call(()=>{
+            .call(() => {
                 tl.current.play()
             })
 
@@ -55,24 +45,20 @@ const Hero = ({introDone}) => {
             repeat: -1,
             yoyo: true,
             defaults: {
-                duration: 1.5,
+                duration: 1.2,
                 ease: "sine.inOut"
             },
             paused: true
         })
             .to(imgRef.current, {
-                x: 2,
-                y: -2,
-                z: 4,
-                rotationX: -2,
-                rotationY: 3,
-                rotationZ: -2
+                y: '-20px',
+                rotate: '1deg'
             })
 
     }, { scope: heroRef });
 
     return (
-        <div ref={heroRef} className=' py-[10%] sm:py-[5%] h-full flex items-center justify-between  flex-col gap-y-12 md:flex-row  w-full containerGap'>
+        <div ref={heroRef} className='py-[10%] sm:py-[5%] h-full flex items-center justify-between  flex-col gap-y-12 md:flex-row  w-full containerGap'>
             {/* left container */}
             <div className='md:max-w-[550px] lg:max-w-[690px] w-full flex flex-col gap-y-[17px] md:gap-y-[24px]'>
                 <p className='text-[#2180ff] font-bold tracking-widest uppercase text-[12px]'>Scalable Intelligence</p>
@@ -97,8 +83,9 @@ const Hero = ({introDone}) => {
             <div >
                 <div className='relative isolate' style={{ transformStyle: 'preserve-3d', perspective: '1200px' }}>
                     <img ref={imgRef} src="/heroImg.png" alt="" className='relative z-10 block will-change-transform' />
-                    <div ref={squareBoxRef} className='absolute top-0.5 right-0.5 z-50 flex aspect-square w-20 lg:w-30 items-center justify-center rounded-sm bg-white text-center font-bold uppercase navbar'>
-                        <PlusIcon ref={iconRef} size={40} />
+                    <div ref={squareBoxRef} className='absolute hidden  -top-4 -right-4 z-50 md:flex aspect-square p-6 items-center justify-center rounded-xl bg-white text-center flex-col shadow-md font-bold  navbar'>
+                        <p className='text-2xl'>+142%</p>
+                        <p className='text-sm text-[#44474d]'>Monthly ROI</p>
                     </div>
                 </div>
             </div>

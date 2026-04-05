@@ -32,11 +32,12 @@ const IntroAnimation = ({ introDone }) => {
                         gsap.set([text1Ref.current, text2Ref.current], { visibility: 'visible' });
                     }
                 }
-            }).from(splitTextInstance.chars, {
-                yPercent: 105,
-                stagger: 0.01,
+            })
+                .from(splitTextInstance.chars, {
+                    yPercent: 105,
+                    stagger: 0.01,
 
-            }).
+                }).
                 from(splitTextInstance2.chars, {
                     yPercent: 105,
                     stagger: 0.01,
