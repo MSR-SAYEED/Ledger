@@ -29,7 +29,7 @@ const TextAnimation = ({ text, style = '' }) => {
 
             gsap.from(splitTextInstance.chars, {
                 yPercent: 105,
-                stagger: 0.01,
+                stagger: 0.008,
 
                 ease: 'power2.out',
                 scrollTrigger: {
